@@ -2654,486 +2654,469 @@
             </div>
           </div>
         </div>
-        <!-- [ breadcrumb ] end --><!-- [ Main Content ] start -->
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-sm-12">
-              <div
-                id="basicwizard"
-                class="form-wizard row justify-content-center"
-              >
-                <div class="col-sm-12 col-md-6 col-xxl-4 text-center">
-                  <h3>Build Your Profile</h3>
-                  <p class="text-muted mb-4">
-                    Complete your professional profile in three simple steps
-                  </p>
+        <!-- =======================
+     UPDATED HTML (Wizard Markup)
+     ======================= -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="basicwizard" class="form-wizard row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-xxl-4 text-center">
+          <h3>Build Your Profile</h3>
+          <p class="text-muted mb-4">
+            Complete your professional profile in three simple steps
+          </p>
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body p-3">
+              <ul class="nav nav-pills nav-justified">
+                <li class="nav-item" data-target-form="#personalInfoForm">
+                  <a
+                    href="#personalInfo"
+                    data-bs-toggle="tab"
+                    class="nav-link active"
+                  >
+                    <i class="ph-duotone ph-user-circle"></i>
+                    <span class="d-none d-sm-inline">Personal Info</span>
+                  </a>
+                </li>
+                <li class="nav-item" data-target-form="#credentialsForm">
+                  <a
+                    href="#credentials"
+                    data-bs-toggle="tab"
+                    class="nav-link icon-btn"
+                  >
+                    <i class="ph-duotone ph-certificate"></i>
+                    <span class="d-none d-sm-inline">Credentials</span>
+                  </a>
+                </li>
+                <li class="nav-item" data-target-form="#projectsForm">
+                  <a
+                    href="#projects"
+                    data-bs-toggle="tab"
+                    class="nav-link icon-btn"
+                  >
+                    <i class="ph-duotone ph-briefcase"></i>
+                    <span class="d-none d-sm-inline">Projects</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#finish"
+                    data-bs-toggle="tab"
+                    class="nav-link icon-btn"
+                  >
+                    <i class="ph-duotone ph-check-circle"></i>
+                    <span class="d-none d-sm-inline">Finish</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="tab-content">
+                <!-- Progress Bar -->
+                <div id="bar" class="progress mb-3" style="height: 7px">
+                  <div
+                    class="bar progress-bar progress-bar-striped progress-bar-animated bg-success"
+                    style="width: 25%"
+                  ></div>
                 </div>
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-body p-3">
-                      <ul class="nav nav-pills nav-justified">
-                        <li
-                          class="nav-item"
-                          data-target-form="#personalInfoForm"
-                        >
-                          <a
-                            href="#personalInfo"
-                            data-bs-toggle="tab"
-                            class="nav-link active"
-                          >
-                            <i class="ph-duotone ph-user-circle"></i>
-                            <span class="d-none d-sm-inline"
-                              >Personal Info</span
-                            >
-                          </a>
-                        </li>
-                        <li
-                          class="nav-item"
-                          data-target-form="#credentialsForm"
-                        >
-                          <a
-                            href="#credentials"
-                            data-bs-toggle="tab"
-                            class="nav-link icon-btn"
-                          >
-                            <i class="ph-duotone ph-certificate"></i>
-                            <span class="d-none d-sm-inline">Credentials</span>
-                          </a>
-                        </li>
-                        <li class="nav-item" data-target-form="#projectsForm">
-                          <a
-                            href="#projects"
-                            data-bs-toggle="tab"
-                            class="nav-link icon-btn"
-                          >
-                            <i class="ph-duotone ph-briefcase"></i>
-                            <span class="d-none d-sm-inline">Projects</span>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            href="#finish"
-                            data-bs-toggle="tab"
-                            class="nav-link icon-btn"
-                          >
-                            <i class="ph-duotone ph-check-circle"></i>
-                            <span class="d-none d-sm-inline">Finish</span>
-                          </a>
-                        </li>
-                      </ul>
+
+                <!-- Step 1: Personal Information -->
+                <div class="tab-pane show active" id="personalInfo">
+                   <form id="personalInfoForm" method="post" action="http://localhost:3000/submit/personal-info">
+
+                    <!-- Hidden field to switch between POST/PATCH -->
+                    <input type="hidden" name="_method" value="POST" id="personalInfoMethod" />
+
+                    <div class="text-center">
+                      <h3 class="mb-2">Personal Information</h3>
+                      <small class="text-muted">
+                        Please provide your basic information and upload
+                        required documents
+                      </small>
                     </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="tab-content">
-                        <!-- Progress Bar -->
-                        <div id="bar" class="progress mb-3" style="height: 7px">
-                          <div
-                            class="bar progress-bar progress-bar-striped progress-bar-animated bg-success"
-                            style="width: 25%"
-                          ></div>
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label"
+                            >Full Name
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                          />
                         </div>
-
-                        <!-- Step 1: Personal Information -->
-                        <div class="tab-pane show active" id="personalInfo">
-                          <form id="personalInfoForm" method="post" action="#">
-                            <div class="text-center">
-                              <h3 class="mb-2">Personal Information</h3>
-                              <small class="text-muted">
-                                Please provide your basic information and upload
-                                required documents
-                              </small>
-                            </div>
-                            <div class="row mt-4">
-                              <div class="col-md-6">
-                                <div class="mb-3">
-                                  <label class="form-label"
-                                    >Full Name
-                                    <span class="text-danger">*</span></label
-                                  >
-                                  <input
-                                    type="text"
-                                    class="form-control"
-                                    id="fullName"
-                                    placeholder="Enter your full name"
-                                    required
-                                  />
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="mb-3">
-                                  <label class="form-label"
-                                    >Phone Number
-                                    <span class="text-danger">*</span></label
-                                  >
-                                  <input
-                                    type="tel"
-                                    class="form-control"
-                                    id="phoneNumber"
-                                    placeholder="Enter phone number (numbers only)"
-                                    pattern="[0-9]+"
-                                    required
-                                  />
-                                </div>
-                              </div>
-                              <div class="col-12">
-                                <div class="mb-3">
-                                  <label class="form-label"
-                                    >Upload Documents (ID, CV, Photo)</label
-                                  >
-                                  <div class="dropzone" id="documentDropzone">
-                                    <div class="dz-message text-center">
-                                      <i
-                                        class="ph-duotone ph-cloud-arrow-up f-40 text-muted"
-                                      ></i>
-                                      <h6 class="mt-2">
-                                        Drop files here or click to upload
-                                      </h6>
-                                      <small class="text-muted"
-                                        >Upload your ID, CV, and Photo (Multiple
-                                        files allowed)</small
-                                      >
-                                    </div>
-                                    <input
-                                      type="file"
-                                      id="documentFiles"
-                                      multiple
-                                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                                      style="display: none"
-                                    />
-                                  </div>
-                                  <div id="uploadedFiles" class="mt-2"></div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label class="form-label"
+                            >Phone Number
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="tel"
+                            class="form-control"
+                            id="phoneNumber"
+                            placeholder="Enter phone number (numbers only)"
+                            pattern="[0-9]+"
+                            required
+                          />
                         </div>
-
-                        <!-- Step 2: Credentials -->
-                        <div class="tab-pane" id="credentials">
-                          <form id="credentialsForm" method="post" action="#">
-                            <div class="text-center">
-                              <h3 class="mb-2">Your Credentials</h3>
-                              <small class="text-muted">
-                                Select your skills and upload certification
-                                documents
-                              </small>
+                      </div>
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <label class="form-label"
+                            >Upload Documents (ID, CV, Photo)</label
+                          >
+                          <div class="dropzone" id="documentDropzone">
+                            <div class="dz-message text-center">
+                              <i
+                                class="ph-duotone ph-cloud-arrow-up f-40 text-muted"
+                              ></i>
+                              <h6 class="mt-2">
+                                Drop files here or click to upload
+                              </h6>
+                              <small class="text-muted"
+                                >Upload your ID, CV, and Photo (Multiple
+                                files allowed)</small
+                              >
                             </div>
-                            <div class="row mt-4">
-                              <div class="col-12">
-                                <div class="mb-3">
-                                  <label class="form-label"
-                                    >Skills
-                                    <span class="text-danger">*</span></label
-                                  >
-                                  <div class="skills-container">
-                                    <div
-                                      class="selected-skills mb-2"
-                                      id="selectedSkills"
-                                    ></div>
-                                    <div class="dropdown w-100">
-                                      <button
-                                        class="btn btn-outline-secondary dropdown-toggle w-100 text-start"
-                                        type="button"
-                                        id="skillsDropdown"
-                                        data-bs-toggle="dropdown"
-                                      >
-                                        Select Skills
-                                      </button>
-                                      <ul
-                                        class="dropdown-menu w-100"
-                                        id="skillsList"
-                                      >
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="JavaScript"
-                                            />
-                                            JavaScript</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="React"
-                                            />
-                                            React</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Vue.js"
-                                            />
-                                            Vue.js</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Angular"
-                                            />
-                                            Angular</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Node.js"
-                                            />
-                                            Node.js</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="PHP"
-                                            />
-                                            PHP</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Python"
-                                            />
-                                            Python</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Java"
-                                            />
-                                            Java</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="HTML/CSS"
-                                            />
-                                            HTML/CSS</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="Bootstrap"
-                                            />
-                                            Bootstrap</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="MySQL"
-                                            />
-                                            MySQL</label
-                                          >
-                                        </li>
-                                        <li>
-                                          <label class="dropdown-item"
-                                            ><input
-                                              type="checkbox"
-                                              value="MongoDB"
-                                            />
-                                            MongoDB</label
-                                          >
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-12">
-                                <div class="mb-3">
-                                  <label class="form-label"
-                                    >Certifications</label
-                                  >
-                                  <div
-                                    class="dropzone"
-                                    id="certificationDropzone"
-                                  >
-                                    <div class="dz-message text-center">
-                                      <i
-                                        class="ph-duotone ph-certificate f-40 text-muted"
-                                      ></i>
-                                      <h6 class="mt-2">
-                                        Drop certification files here or click
-                                        to upload
-                                      </h6>
-                                      <small class="text-muted"
-                                        >Upload your certificates (Multiple
-                                        files allowed)</small
-                                      >
-                                    </div>
-                                    <input
-                                      type="file"
-                                      id="certificationFiles"
-                                      multiple
-                                      accept=".pdf,.jpg,.jpeg,.png"
-                                      style="display: none"
-                                    />
-                                  </div>
-                                  <div
-                                    id="uploadedCertifications"
-                                    class="mt-2"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
+                            <input
+                              type="file"
+                              id="documentFiles"
+                              multiple
+                              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                              style="display: none"
+                            />
+                          </div>
+                          <div id="uploadedFiles" class="mt-2"></div>
                         </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
 
-                        <!-- Step 3: Project Experience -->
-                        <div class="tab-pane" id="projects">
-                          <form id="projectsForm" method="post" action="#">
-                            <div class="text-center">
-                              <h3 class="mb-2">Project Experience</h3>
-                              <small class="text-muted">
-                                Add your project experiences to showcase your
-                                work
-                              </small>
-                            </div>
-                            <div class="row mt-4">
-                              <div class="col-12">
-                                <div
-                                  class="d-flex justify-content-between align-items-center mb-3"
-                                >
-                                  <h5>Your Projects</h5>
-                                  <button
-                                    type="button"
-                                    class="btn btn-primary"
-                                    id="addProjectBtn"
-                                  >
-                                    <i class="ph-duotone ph-plus"></i> Add
-                                    Project
-                                  </button>
-                                </div>
-                                <div id="projectsList">
-                                  <div class="text-center text-muted py-4">
-                                    <i class="ph-duotone ph-briefcase f-40"></i>
-                                    <p class="mt-2">
-                                      No projects added yet. Click "Add Project"
-                                      to get started.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
+                <!-- Step 2: Credentials -->
+                <div class="tab-pane" id="credentials">
+                 <form id="credentialsForm" method="post" action="http://localhost:3000/submit/credentials">
+                    <!-- Hidden field to switch between POST/PATCH -->
+                    <input type="hidden" name="_method" value="POST" id="credentialsMethod" />
 
-                        <!-- Finish Step -->
-                        <div class="tab-pane" id="finish">
-                          <div class="row d-flex justify-content-center">
-                            <div class="col-lg-6">
-                              <div class="text-center">
-                                <i
-                                  class="ph-duotone ph-check-circle f-50 text-success"
-                                ></i>
-                                <h3 class="mt-4 mb-3">Profile Complete!</h3>
-                                <p class="text-muted mb-4">
-                                  Your profile has been successfully created.
-                                  Review your information below:
-                                </p>
-                                <div
-                                  id="profileSummary"
-                                  class="text-start bg-light p-3 rounded mb-3"
-                                >
-                                  <!-- Profile summary will be populated here -->
-                                </div>
-                                <div class="mb-3">
-                                  <div class="form-check d-inline-block">
-                                    <input
+                    <div class="text-center">
+                      <h3 class="mb-2">Your Credentials</h3>
+                      <small class="text-muted">
+                        Select your skills and upload certification
+                        documents
+                      </small>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <label class="form-label"
+                            >Skills
+                            <span class="text-danger">*</span></label
+                          >
+                          <div class="skills-container">
+                            <div class="selected-skills mb-2" id="selectedSkills"></div>
+                            <div class="dropdown w-100">
+                              <button
+                                class="btn btn-outline-secondary dropdown-toggle w-100 text-start"
+                                type="button"
+                                id="skillsDropdown"
+                                data-bs-toggle="dropdown"
+                              >
+                                Select Skills
+                              </button>
+                              <ul class="dropdown-menu w-100" id="skillsList">
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
                                       type="checkbox"
-                                      class="form-check-input"
-                                      id="termsCheck"
-                                      required
+                                      value="JavaScript"
                                     />
-                                    <label
-                                      class="form-check-label"
-                                      for="termsCheck"
-                                    >
-                                      I agree with the Terms and Conditions
-                                    </label>
-                                  </div>
-                                </div>
-                                <button
-                                  type="button"
-                                  class="btn btn-success"
-                                  id="submitProfile"
-                                >
-                                  Submit Profile
-                                </button>
-                              </div>
+                                    JavaScript</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="React"
+                                    />
+                                    React</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Vue.js"
+                                    />
+                                    Vue.js</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Angular"
+                                    />
+                                    Angular</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Node.js"
+                                    />
+                                    Node.js</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="PHP"
+                                    />
+                                    PHP</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Python"
+                                    />
+                                    Python</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Java"
+                                    />
+                                    Java</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="HTML/CSS"
+                                    />
+                                    HTML/CSS</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="Bootstrap"
+                                    />
+                                    Bootstrap</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="MySQL"
+                                    />
+                                    MySQL</label
+                                  >
+                                </li>
+                                <li>
+                                  <label class="dropdown-item"
+                                    ><input
+                                      type="checkbox"
+                                      value="MongoDB"
+                                    />
+                                    MongoDB</label
+                                  >
+                                </li>
+                              </ul>
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="mb-3">
+                          <label class="form-label">Certifications</label>
+                          <div class="dropzone" id="certificationDropzone">
+                            <div class="dz-message text-center">
+                              <i class="ph-duotone ph-certificate f-40 text-muted"></i>
+                              <h6 class="mt-2">
+                                Drop certification files here or click
+                                to upload
+                              </h6>
+                              <small class="text-muted"
+                                >Upload your certificates (Multiple
+                                files allowed)</small
+                              >
+                            </div>
+                            <input
+                              type="file"
+                              id="certificationFiles"
+                              multiple
+                              accept=".pdf,.jpg,.jpeg,.png"
+                              style="display: none"
+                            />
+                          </div>
+                          <div id="uploadedCertifications" class="mt-2"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
 
-                        <!-- Navigation Buttons -->
+                <!-- Step 3: Project Experience -->
+                <div class="tab-pane" id="projects">
+                   <form id="projectsForm" method="post" action="http://localhost:3000/submit/projects">
+                    <!-- Hidden field to switch between POST/PATCH -->
+                    <input type="hidden" name="_method" value="POST" id="projectsMethod" />
+
+                    <div class="text-center">
+                      <h3 class="mb-2">Project Experience</h3>
+                      <small class="text-muted">
+                        Add your project experiences to showcase your
+                        work
+                      </small>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-12">
                         <div
-                          class="d-flex wizard justify-content-between flex-wrap gap-2 mt-3"
+                          class="d-flex justify-content-between align-items-center mb-3"
                         >
-                          <div class="first">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              id="firstBtn"
-                            >
-                              First
-                            </button>
-                          </div>
-                          <div class="d-flex">
-                            <div class="previous me-2">
-                              <button
-                                type="button"
-                                class="btn btn-secondary"
-                                id="prevBtn"
-                              >
-                                Back To Previous
-                              </button>
-                            </div>
-                            <div class="next">
-                              <button
-                                type="button"
-                                class="btn btn-primary"
-                                id="nextBtn"
-                              >
-                                Next Step
-                              </button>
-                            </div>
-                          </div>
-                          <div class="last">
-                            <button
-                              type="button"
-                              class="btn btn-success"
-                              id="finishBtn"
-                            >
-                              Finish
-                            </button>
+                          <h5>Your Projects</h5>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="addProjectBtn"
+                          >
+                            <i class="ph-duotone ph-plus"></i> Add
+                            Project
+                          </button>
+                        </div>
+                        <div id="projectsList">
+                          <div class="text-center text-muted py-4">
+                            <i class="ph-duotone ph-briefcase f-40"></i>
+                            <p class="mt-2">
+                              No projects added yet. Click "Add Project"
+                              to get started.
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </form>
+                </div>
+
+                <!-- Finish Step -->
+                <div class="tab-pane" id="finish">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6">
+                      <div class="text-center">
+                        <i
+                          class="ph-duotone ph-check-circle f-50 text-success"
+                        ></i>
+                        <h3 class="mt-4 mb-3">Profile Complete!</h3>
+                        <p class="text-muted mb-4">
+                          Your profile has been successfully created.
+                          Review your information below:
+                        </p>
+                        <div
+                          id="profileSummary"
+                          class="text-start bg-light p-3 rounded mb-3"
+                        >
+                          <!-- Profile summary will be populated here -->
+                        </div>
+                        <div class="mb-3">
+                          <div class="form-check d-inline-block">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="termsCheck"
+                              required
+                            />
+                            <label class="form-check-label" for="termsCheck">
+                              I agree with the Terms and Conditions
+                            </label>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          id="submitProfile"
+                        >
+                          Submit Profile
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div
+                  class="d-flex wizard justify-content-between flex-wrap gap-2 mt-3"
+                >
+                  <div class="first">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      id="firstBtn"
+                    >
+                      First
+                    </button>
+                  </div>
+                  <div class="d-flex">
+                    <div class="previous me-2">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="prevBtn"
+                      >
+                        Back To Previous
+                      </button>
+                    </div>
+                    <div class="next">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="nextBtn"
+                      >
+                        Next Step
+                      </button>
+                    </div>
+                  </div>
+                  <div class="last">
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      id="finishBtn"
+                    >
+                      Finish
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
 
         <!-- Project Modal -->
         <div class="modal fade" id="projectModal" tabindex="-1">
