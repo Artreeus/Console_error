@@ -336,3 +336,8 @@
         transform: rotate(360deg);
     }
 }
+
+/* Toast container positioning */
+.toast-container {
+    z-index: 1055;
+}
